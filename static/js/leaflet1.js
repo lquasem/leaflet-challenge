@@ -24,56 +24,55 @@ var link = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&star
 
 
 
-  // function chooseColor(mag) {
-  //   var color = "";
-  //   if (mag > 5) {
-  //     color = "Black";
-  //   }
-  //   else if (mag <= 5 && mag > 4) {
-  //     color = "Grey";
-  //   }
-  //   else if (mag <= 4 && mag > 3) {
-  //     color = "Violet";
-  //   }
-  //   else if (mag <= 3 && mag > 2) {
-  //     color = "Orange";
-  //   }
-  //   else if (mag <= 2 && mag > 1) {
-  //     color = "Yellow";
-  //   }
-  //   else {
-  //     color = "Peach";
-  //   }
-  //   return color;
-  // }
+  function chooseColor(mag) {
+    var color = "";
+    if (mag > 5) {
+      color = "Black";
+    }
+    else if (mag <= 5 && mag > 4) {
+      color = "Grey";
+    }
+    else if (mag <= 4 && mag > 3) {
+      color = "Violet";
+    }
+    else if (mag <= 3 && mag > 2) {
+      color = "Orange";
+    }
+    else if (mag <= 2 && mag > 1) {
+      color = "Yellow";
+    }
+    else {
+      color = "Peach";
+    }
+    return color;
+  }
 
-  // function markerSize(mag) {
-  //   return mag * 25000;
-  // }
+  function markerSize(mag) {
+    return mag * 25000;
+  }
 
-  // function createFeatures(earthquakeData) {
+  function createFeatures(earthquakeData) {
   
 
-  // d3.json( link, function(data){
-  //     console.log(data)
+  d3.json( link, function(data){
+      console.log(data)
 
-  //     L.geoJson(data, {
-  //         pointToLayer:function(feature, latlng){
-  //        return L.circleMarker(latlng), {
-  //        stroke: false,
-  //        fillOpacity: 0.75,
-  //     color: "black",
-  //     fillColor: chooseColor(feature.properties.mag),
-  //     radius: markerSize(feature.properties.mag) 
-  //        }.bindPopup("<h3>" + feature.properties.place +
-  //      "  Mag: " +  feature.properties.mag + "</p>")
-  //     },
-  //   })
+      L.geoJson(data, {
+          pointToLayer:function(feature, latlng){
+         return L.circleMarker(latlng), {
+         stroke: false,
+         fillOpacity: 0.75,
+      color: "black",
+      fillColor: chooseColor(feature.properties.mag),
+      radius: markerSize(feature.properties.mag) 
+         }.bindPopup("<h3>" + feature.properties.place +
+       "  Mag: " +  feature.properties.mag + "</p>")
+      },
+    })
 
 
-  // }).addTo(map);
+  }).addTo(map);
  
   
-  // };
+  };
   
-
